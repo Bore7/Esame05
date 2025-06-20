@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registrazione Codex</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      background: linear-gradient(90deg, #0052D4 0%, #4364F7 50%, #6FB1FC 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+      max-width: 980px;
+      margin: auto;
+      box-shadow: 0 0 30px rgba(0,0,0,0.2);
+      border-radius: 30px;
+      background: white;
+      overflow: hidden;
+    }
+    /* LEFT SIDE: FORM REGISTRAZIONE */
+    section#registrationSection {
+      background: white;
+      padding: 40px 30px;
+      width: 55%;
+      border-radius: 30px 0 0 30px;
+      box-shadow: 2px 2px 15px rgba(0,0,0,0.1);
+    }
+    section#registrationSection h3 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-weight: 700;
+      color: #0d3a94;
+    }
+    section#registrationSection form > div > div,
+    section#registrationSection form > div {
+      margin-bottom: 15px;
+    }
+    /* Sesso radios */
+    .gender-group {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .gender-group label {
+      margin-bottom: 0;
+      color: #0d3a94;
+      font-weight: 600;
+    }
+
+    /* RIGHT SIDE: WELCOME + LOGIN */
+    .right-side {
+      background: #0d3a94;
+      color: white;
+      padding: 40px 30px;
+      width: 45%;
+      border-radius: 0 30px 30px 0;
+      box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+    .right-side h2 {
+      margin-bottom: 10px;
+      font-weight: 700;
+      font-size: 2.2rem;
+    }
+    .right-side p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      line-height: 1.3;
+    }
+    .right-side button {
+      background: white;
+      color: #0d3a94;
+      border: none;
+      padding: 12px 50px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+      align-self: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .right-side button:hover {
+      background: #e3e3e3;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .wrapper {
+        flex-direction: column;
+        height: auto;
+        max-width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      section#registrationSection,
+      .right-side {
+        width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 30px 20px;
+      }
+      section#registrationSection {
+        border-radius: 30px 30px 0 0;
+      }
+      .right-side {
+        border-radius: 0 0 30px 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper shadow">
+    <section id="registrationSection">
+      <h3>Registrazione</h3>
+      <form id="userForm" novalidate>
+        <div>
+          <input type="text" id="firstName" class="form-control" placeholder="Nome *" required />
+        </div>
+        <div>
+          <input type="text" id="lastName" class="form-control" placeholder="Cognome *" required />
+        </div>
+        <div>
+          <input type="date" id="birthDate" class="form-control" placeholder="Data di nascita *" required />
+        </div>
+
+        <div class="gender-group">
+          <label>Sesso *</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender" id="genderMale" value="male" required />
+            <label class="form-check-label" for="genderMale">Maschio</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="female" required />
+            <label class="form-check-label" for="genderFemale">Femmina</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="gender" id="genderOther" value="other" required />
+            <label class="form-check-label" for="genderOther">Altro</label>
+          </div>
+        </div>
+
+        <div>
+          <input type="tel" id="phone" class="form-control" placeholder="Telefono *" required pattern="[0-9+\s\-()]{6,15}" />
+        </div>
+        <div>
+          <input type="email" id="emailReg" class="form-control" placeholder="Email *" required />
+        </div>
+
+        <div>
+          <input type="text" id="address" class="form-control" placeholder="Indirizzo *" required />
+        </div>
+        <div>
+          <input type="text" id="city" class="form-control" placeholder="Città *" required />
+        </div>
+        <div>
+          <input type="text" id="province" class="form-control" placeholder="Provincia *" required />
+        </div>
+        <div>
+          <input type="text" id="zip" class="form-control" placeholder="CAP *" required pattern="[0-9]{5}" />
+        </div>
+        <div>
+          <input type="text" id="country" class="form-control" placeholder="Nazione *" required />
+        </div>
+
+        <div>
+          <input type="password" id="passwordReg" class="form-control" placeholder="Password *" required minlength="6" />
+        </div>
+        <div>
+          <input type="password" id="confirmPassword" class="form-control" placeholder="Conferma Password *" required minlength="6" />
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Registrati</button>
+      </form>
+    </section>
+
+    <div class="right-side">
+      <h2>Welcome</h2>
+      <p>You are 30 seconds away from earning your own money!</p>
+      <button id="loginBtn">Login</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('loginBtn').addEventListener('click', () => {
+      alert('Implementa qui la funzionalità di Login');
+    });
+  </script>
+</body>
+</html>
